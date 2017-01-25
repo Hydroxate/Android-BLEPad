@@ -19,10 +19,21 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
+import android.widget.Switch;
 import android.widget.TextView;
+
+import org.puredata.android.io.AudioParameters;
+import org.puredata.android.io.PdAudio;
+import org.puredata.android.utils.PdUiDispatcher;
+import org.puredata.core.PdBase;
+import org.puredata.core.utils.IoUtils;
+
+import java.io.File;
+import java.io.IOException;
 
 public class BluetoothControlAcitvity extends Activity
 {
@@ -40,7 +51,60 @@ public class BluetoothControlAcitvity extends Activity
     private Button sendBt;
     private Handler mHandler;
     public String received;
-	private static final int MSG_DATA_CHANGE = 0x11;  
+	private static final int MSG_DATA_CHANGE = 0x11;
+
+    private PdUiDispatcher dispatcher;
+    private void initPD() throws IOException
+    {
+        int sampleRate = AudioParameters.suggestSampleRate();
+        PdAudio.initAudio(sampleRate,0,2,8,true);
+
+        dispatcher = new PdUiDispatcher();
+        PdBase.setReceiver(dispatcher);
+    }
+    private void initGUI(){
+      //  Switch initSynthSwitch = (Switch) findViewById(R.id.switch1);
+
+      //  initSynthSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+       //     @Override
+       //     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+       //         // Log.i("INIT","SWITCH CHANGED" + String.valueOf(isChecked));
+        //        float val = (isChecked) ?  1.0f : 0.0f;
+        //        sendFloatPD("onOff", val);
+        //    }
+     //   });
+    }
+
+    public void sendPatchData()
+    {
+
+      //  sendFloatPD("amp", Float.parseFloat(amp.getText().toString()));
+        sendFloatPD("freq", Float.parseFloat(received));
+    }
+
+    public void sendFloatPD(String receiver, Float value)
+    {
+        PdBase.sendFloat(receiver, value);
+    }
+
+    public void sendBangPD(String receiver)
+    {
+        PdBase.sendBang(receiver);
+    }
+
+
+    private void loadPDPatch(String patchName) throws IOException
+    {
+        File dir = getFilesDir();
+        try {
+            IoUtils.extractZipResource(getResources().openRawResource(R.raw.synth), dir, true);
+            File pdPatch = new File(dir, patchName);
+            PdBase.openPatch(pdPatch.getAbsolutePath());
+        }catch (IOException e)
+        {
+
+        }
+    }
     
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -193,6 +257,15 @@ public class BluetoothControlAcitvity extends Activity
             	
             }
         });
+
+        try{
+            initPD();
+            loadPDPatch("synth.pd"); // This is the name of the patch in the zip
+
+        }catch(IOException e)
+        {
+            finish();
+        }
         
 	}
 
@@ -261,6 +334,19 @@ public class BluetoothControlAcitvity extends Activity
 		}
 		return super.onOptionsItemSelected(item);
 	}
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+        PdAudio.startAudio(this);
+    }
+
+    @Override
+    protected void onPause()
+    {
+        super.onPause();
+        PdAudio.stopAudio();
+    }
 
 	@Override
 	protected void onDestroy()

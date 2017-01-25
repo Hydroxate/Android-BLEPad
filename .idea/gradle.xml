@@ -8,6 +8,11 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/CircleOfFifths" />
+            <option value="$PROJECT_DIR$/PdCore" />
+            <option value="$PROJECT_DIR$/PdTest" />
+            <option value="$PROJECT_DIR$/ScenePlayer" />
+            <option value="$PROJECT_DIR$/Voice-O-Rama" />
             <option value="$PROJECT_DIR$/app" />
           </set>
         </option>

@@ -3,6 +3,11 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Android-BLEPad-master.iml" filepath="$PROJECT_DIR$/Android-BLEPad-master.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CircleOfFifths/CircleOfFifths.iml" filepath="$PROJECT_DIR$/CircleOfFifths/CircleOfFifths.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PdCore/PdCore.iml" filepath="$PROJECT_DIR$/PdCore/PdCore.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PdTest/PdTest.iml" filepath="$PROJECT_DIR$/PdTest/PdTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ScenePlayer/ScenePlayer.iml" filepath="$PROJECT_DIR$/ScenePlayer/ScenePlayer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Voice-O-Rama/Voice-O-Rama.iml" filepath="$PROJECT_DIR$/Voice-O-Rama/Voice-O-Rama.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

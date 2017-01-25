@@ -4,6 +4,10 @@
         "source": "/Users/conorsouness/Downloads/Android-BLEPad-master/app/src/main/res/layout/actionbar_indeterminate_progress.xml"
     },
     {
+        "merged": "/Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/res/merged/debug/layout/device_list.xml",
+        "source": "/Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/exploded-aar/com.noisepages.nettoyeur/midi/1.0.0-rc1/res/layout/device_list.xml"
+    },
+    {
         "merged": "/Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/res/merged/debug/layout/list.xml",
         "source": "/Users/conorsouness/Downloads/Android-BLEPad-master/app/src/main/res/layout/list.xml"
     },
@@ -14,5 +18,9 @@
     {
         "merged": "/Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/res/merged/debug/layout/activity_main.xml",
         "source": "/Users/conorsouness/Downloads/Android-BLEPad-master/app/src/main/res/layout/activity_main.xml"
+    },
+    {
+        "merged": "/Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/res/merged/debug/layout/device_name.xml",
+        "source": "/Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/exploded-aar/com.noisepages.nettoyeur/midi/1.0.0-rc1/res/layout/device_name.xml"
     }
 ]

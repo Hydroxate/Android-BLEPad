@@ -17,6 +17,16 @@ ADDED from /Users/conorsouness/Downloads/Android-BLEPad-master/app/src/main/Andr
 		ADDED from /Users/conorsouness/Downloads/Android-BLEPad-master/app/src/main/AndroidManifest.xml:2:11-69
 uses-sdk
 ADDED from /Users/conorsouness/Downloads/Android-BLEPad-master/app/src/main/AndroidManifest.xml:7:5-9:41
+MERGED from [org.puredata.android:pd-core:1.0.2] /Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/exploded-aar/org.puredata.android/pd-core/1.0.2/AndroidManifest.xml:7:5-9:41
+MERGED from [com.noisepages.nettoyeur:midi:1.0.0-rc1] /Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/exploded-aar/com.noisepages.nettoyeur/midi/1.0.0-rc1/AndroidManifest.xml:7:5-9:40
+MERGED from [com.android.support:support-v4:24.2.1] /Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-fragment:24.2.1] /Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-media-compat:24.2.1] /Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-core-ui:24.2.1] /Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-utils:24.2.1] /Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-compat:24.2.1] /Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:21:5-23:58
+	tools:overrideLibrary
+		ADDED from [com.android.support:support-v4:24.2.1] /Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/AndroidManifest.xml:23:9-51
 	android:targetSdkVersion
 		ADDED from /Users/conorsouness/Downloads/Android-BLEPad-master/app/src/main/AndroidManifest.xml:9:9-38
 		INJECTED from /Users/conorsouness/Downloads/Android-BLEPad-master/app/src/main/AndroidManifest.xml
@@ -49,6 +59,12 @@ ADDED from /Users/conorsouness/Downloads/Android-BLEPad-master/app/src/main/Andr
 		ADDED from /Users/conorsouness/Downloads/Android-BLEPad-master/app/src/main/AndroidManifest.xml:16:22-78
 application
 ADDED from /Users/conorsouness/Downloads/Android-BLEPad-master/app/src/main/AndroidManifest.xml:18:5-40:19
+MERGED from [com.android.support:support-v4:24.2.1] /Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-fragment:24.2.1] /Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-media-compat:24.2.1] /Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-ui:24.2.1] /Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-utils:24.2.1] /Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.1] /Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:25:5-20
 	android:label
 		ADDED from /Users/conorsouness/Downloads/Android-BLEPad-master/app/src/main/AndroidManifest.xml:21:9-41
 	android:allowBackup

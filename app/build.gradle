@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 19
+    compileSdkVersion 20
     buildToolsVersion "22.0.1"
 
     defaultConfig {
         applicationId "com.example.testble"
-        minSdkVersion 18
+        minSdkVersion 20
         targetSdkVersion 20
     }
 
@@ -19,5 +19,6 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:support-v4:19.1.0'
+    compile 'com.android.support:support-v4:20.1.0'
+    compile 'org.puredata.android:pd-core:1.0.2'
 }
