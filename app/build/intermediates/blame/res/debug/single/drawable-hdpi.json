@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "/Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/res/merged/debug/drawable-hdpi/hongjia.png",
+        "source": "/Users/conorsouness/Downloads/Android-BLEPad-master/app/src/main/res/drawable-hdpi/hongjia.png"
+    },
+    {
+        "merged": "/Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/res/merged/debug/drawable-hdpi/icon.png",
+        "source": "/Users/conorsouness/Downloads/Android-BLEPad-master/app/src/main/res/drawable-hdpi/icon.png"
+    },
+    {
+        "merged": "/Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_launcher.png",
+        "source": "/Users/conorsouness/Downloads/Android-BLEPad-master/app/src/main/res/drawable-hdpi/ic_launcher.png"
+    }
+]

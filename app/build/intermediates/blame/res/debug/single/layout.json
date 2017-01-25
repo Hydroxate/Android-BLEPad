@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/res/merged/debug/layout/actionbar_indeterminate_progress.xml",
+        "source": "/Users/conorsouness/Downloads/Android-BLEPad-master/app/src/main/res/layout/actionbar_indeterminate_progress.xml"
+    },
+    {
+        "merged": "/Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/res/merged/debug/layout/list.xml",
+        "source": "/Users/conorsouness/Downloads/Android-BLEPad-master/app/src/main/res/layout/list.xml"
+    },
+    {
+        "merged": "/Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/res/merged/debug/layout/bluetooth_control.xml",
+        "source": "/Users/conorsouness/Downloads/Android-BLEPad-master/app/src/main/res/layout/bluetooth_control.xml"
+    },
+    {
+        "merged": "/Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/res/merged/debug/layout/activity_main.xml",
+        "source": "/Users/conorsouness/Downloads/Android-BLEPad-master/app/src/main/res/layout/activity_main.xml"
+    }
+]
