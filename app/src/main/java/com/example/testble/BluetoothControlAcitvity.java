@@ -71,15 +71,19 @@ public class BluetoothControlAcitvity extends Activity
        //         // Log.i("INIT","SWITCH CHANGED" + String.valueOf(isChecked));
         //        float val = (isChecked) ?  1.0f : 0.0f;
         //        sendFloatPD("onOff", val);
-        //    }
-     //   });
+		//    }
+      //   });
     }
 
     public void sendPatchData()
     {
+        float val = 1;
+		String send = received.substring(10);
 
+        if(send!="" && send!=null){
+            sendFloatPD("onOff", val);
       //  sendFloatPD("amp", Float.parseFloat(amp.getText().toString()));
-        sendFloatPD("freq", Float.parseFloat(received));
+        sendFloatPD("freq", Float.parseFloat(send));}
     }
 
     public void sendFloatPD(String receiver, Float value)
@@ -156,6 +160,11 @@ public class BluetoothControlAcitvity extends Activity
 					default: //receive
                         addLogText(strData,Color.BLACK,strData.length());
                         received = strData;
+						if(received!=null && received!="")
+						{
+							sendPatchData();
+						}
+
 						builder.setSpan(colorSpan, 0, 3, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 						break;
 					}
