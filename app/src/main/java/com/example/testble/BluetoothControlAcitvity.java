@@ -25,15 +25,18 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.puredata.android.io.AudioParameters;
 import org.puredata.android.io.PdAudio;
 import org.puredata.android.utils.PdUiDispatcher;
 import org.puredata.core.PdBase;
+import org.puredata.core.PdReceiver;
 import org.puredata.core.utils.IoUtils;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 
 public class BluetoothControlAcitvity extends Activity {
     private final static String TAG = BluetoothControlAcitvity.class.getSimpleName();
@@ -54,36 +57,27 @@ public class BluetoothControlAcitvity extends Activity {
     public String bendValue;
     public String forceValue;
     public String thermValue;
-    int cut = 1;
     private static final int MSG_DATA_CHANGE = 0x11;
+
+    StringBuilder output = new StringBuilder();
 
     private PdUiDispatcher dispatcher;
 
     private void initPD() throws IOException {
         int sampleRate = AudioParameters.suggestSampleRate();
-        PdAudio.initAudio(sampleRate, 0, 2, 8, true);
+        PdAudio.initAudio(sampleRate, 1, 2, 8, true);
 
         dispatcher = new PdUiDispatcher();
+
         PdBase.setReceiver(dispatcher);
+
+        dispatcher.addListener("android",receiver);
+        PdBase.subscribe("android");
+
     }
 
-    private void initGUI() {
-        //  Switch initSynthSwitch = (Switch) findViewById(R.id.switch1);
-
-        //  initSynthSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-        //     @Override
-        //     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        //         // Log.i("INIT","SWITCH CHANGED" + String.valueOf(isChecked));
-        //        float val = (isChecked) ?  1.0f : 0.0f;
-        //        sendFloatPD("onOff", val);
-        //    }
-        //   });
-    }
 
     public void sendPatchData(String receive, String value) {
-
-        //addLogText(value,Color.BLACK,value.length());
-
 
         sendFloatPD(receive, Float.parseFloat(value));
 
@@ -91,11 +85,13 @@ public class BluetoothControlAcitvity extends Activity {
 
     }
 
-    public void sendFloatPD(String receiver, Float value) {
+    public void sendFloatPD(String receiver, Float value)
+    {
         PdBase.sendFloat(receiver, value);
     }
 
-    public void sendBangPD(String receiver) {
+    public void sendBangPD(String receiver)
+    {
         PdBase.sendBang(receiver);
     }
 
@@ -123,8 +119,6 @@ public class BluetoothControlAcitvity extends Activity {
         getActionBar().setTitle(mDeviceName);
         getActionBar().setDisplayHomeAsUpEnabled(true);
         context = this;
-        scrollView = (ScrollView) findViewById(R.id.scroll);
-
 
         mble = HolloBluetooth.getInstance(getApplicationContext());
 
@@ -156,55 +150,23 @@ public class BluetoothControlAcitvity extends Activity {
 
                             default: //receive
                                 addLogText(strData, Color.BLACK, strData.length());
-                                received = strData.substring(9);
-                                if (received != null && received != "") {
-                                    for (int i = 1; i < received.length(); i++) {
-                                        if (received.charAt(i) == 'A' || received.charAt(i) == 'B' || received.charAt(i) == 'C' || received.charAt(i) == 'D') {
-                                            cut = i;
-                                            i = received.length();
+
+
+                                    for (int i = 0; i < strData.length(); i++) {
+                                        if (strData.charAt(i) == 'A' || strData.charAt(i) == 'B' || strData.charAt(i) == 'C' || strData.charAt(i) == 'D') {
+                                            received = output.toString();
+                                            sensorParse();
+                                            output.delete(0,output.length());
+                                            output.append(strData.charAt(i));
+
                                         } else {
-                                            cut = received.length();
+                                           output.append(strData.charAt(i));
                                         }
                                     }
 
-                                    if(cut != 1) {
-
-                                        if (received.charAt(0) == 'A') {
-                                            bendValue = received.substring(1, cut);
-                                            sendPatchData("bend",bendValue);
-                                          //  Log.e("BEND", bendValue);
-                                        } else if (received.charAt(0) == 'B') {
-                                            thermValue = received.substring(1, cut);
-                                           // Log.e("THERM", thermValue);
-                                            sendPatchData("therm", thermValue);
-                                        } else if (received.charAt(0) == 'C') {
-                                            forceValue = received.substring(1, cut);
-                                            sendPatchData("force",forceValue);
-                                          //  Log.e("FORCE", forceValue);
-                                        } else if (received.charAt(0) == 'D') {
-                                            buttonValue = received.substring(1, cut);
-                                            sendPatchData("button",buttonValue);
-                                          //  Log.e("BUTTON", buttonValue);
-                                        } else {
-                                            sendPatchData("freq","100");
-                                        }
-                                    }
-                                    else
-                                    {
-                                        sendPatchData("freq","100");
-                                    }
-
-                                }
-
-                                builder.setSpan(colorSpan, 0, 3, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
                                 break;
                         }
 
-                        TextView tView = new TextView(context);
-                        tView.setText(builder);
-                        LinearLayout layout = (LinearLayout) findViewById(R.id.scroll_layout);
-                        layout.addView(tView);
-                        scrollView.fullScroll(ScrollView.FOCUS_DOWN);
                         break;
 
                     default:
@@ -214,18 +176,7 @@ public class BluetoothControlAcitvity extends Activity {
             }
         };
 
-        Button clearBt = (Button) findViewById(R.id.clear_log);
-        clearBt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                LinearLayout layout = (LinearLayout) findViewById(R.id.scroll_layout);
-                layout.removeAllViews();
-
-            }
-        });
-
-
-        new Handler().post(new Runnable() {
+               new Handler().post(new Runnable() {
             @Override
             public void run() {
 
@@ -300,6 +251,27 @@ public class BluetoothControlAcitvity extends Activity {
         return super.onCreateOptionsMenu(menu);
     }
 
+    void sensorParse()
+    {
+        if(received.length()>0) {
+            if (received.charAt(0) == 'A') {
+                bendValue = received.substring(1);
+                sendPatchData("A0", bendValue);
+            }
+            else if (received.charAt(0) == 'B') {
+                thermValue = received.substring(1);
+                sendPatchData("A1", thermValue);
+            }
+            else if (received.charAt(0) == 'C') {
+                forceValue = received.substring(1);
+                sendPatchData("A2", forceValue);
+            }
+            else if (received.charAt(0) == 'D') {
+                buttonValue = received.substring(1);
+                sendPatchData("A3", buttonValue);
+            }
+        }
+    }
 
     void addLogText(final String log, final int color, int byteLen) {
         Message message = new Message();
@@ -321,7 +293,9 @@ public class BluetoothControlAcitvity extends Activity {
 
         @Override
         public void OnReceiveData(byte[] recvData) {
-            addLogText("Received：" + ConvertData.bytesToHexString(recvData, false), Color.rgb(139, 0, 255), recvData.length);
+            addLogText(ConvertData.bytesToHexString(recvData, false), Color.rgb(139, 0, 255), recvData.length);
+
+
         }
     };
 
@@ -358,6 +332,54 @@ public class BluetoothControlAcitvity extends Activity {
         mble.disconnectLocalDevice();
         Log.d(TAG, "destroyed");
     }
+
+    private PdReceiver receiver = new PdReceiver() {
+
+        private void pdPost(final String msg) {
+            Log.e("RECEIVED:", msg);
+
+            new Handler().post(new Runnable() {
+                @Override
+                public void run() {
+
+                    if (!mble.sendData(msg)) {
+                    }
+
+                }
+            });
+        }
+
+        @Override
+        public void print(String s) {
+            Log.i("PRINT",s);
+        }
+
+        @Override
+        public void receiveBang(String source) {
+            pdPost("bang");
+        }
+
+        @Override
+        public void receiveFloat(String source, float x) {
+            pdPost("float: " + x);
+        }
+
+        @Override
+        public void receiveList(String source, Object... args) {
+            pdPost("list: " + Arrays.toString(args));
+        }
+
+        @Override
+        public void receiveMessage(String source, String symbol, Object... args) {
+            pdPost("message: " + Arrays.toString(args));
+        }
+
+        @Override
+        public void receiveSymbol(String source, String symbol) {
+            pdPost("symbol: " + symbol);
+        }
+    };
+
 
 
 }
