@@ -227,8 +227,8 @@ public class MainActivity extends ListActivity
                 	
                 	if(deviceName == null || deviceName.length() <= 0)
                 		deviceName = "unknow device";
-                	Log.d(TAG, deviceName);
-                	Log.d(TAG, device.getAddress());
+                //	Log.d(TAG, deviceName);
+                //	Log.d(TAG, device.getAddress());
 //                    Log.d(TAG,":"+ConvertData.bytesToHexString(scanRecord, false));
 
 

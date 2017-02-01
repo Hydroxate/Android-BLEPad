@@ -20,8 +20,8 @@ public final class R {
 		public static final int icon = 0x7f020003;
 	}
 	public static final class id {
-		public static final int paired_devices = 0x7f0b000a;
-		public static final int title_paired_devices = 0x7f0b0009;
+		public static final int paired_devices = 0x7f0b0008;
+		public static final int title_paired_devices = 0x7f0b0007;
 	}
 	public static final class layout {
 		public static final int device_list = 0x7f030003;
