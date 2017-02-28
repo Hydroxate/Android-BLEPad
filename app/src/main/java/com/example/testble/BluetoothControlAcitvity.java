@@ -53,11 +53,13 @@ public class BluetoothControlAcitvity extends Activity {
 
     private Handler mHandler;
     public String received;
-    public String buttonValue;
-    public String bendValue;
-    public String forceValue;
-    public String thermValue;
+    public String A3Value;
+    public String A0Value;
+    public String A2Value;
+    public String A1Value;
     private static final int MSG_DATA_CHANGE = 0x11;
+
+    public String toSend;
 
     StringBuilder output = new StringBuilder();
 
@@ -71,8 +73,17 @@ public class BluetoothControlAcitvity extends Activity {
 
         PdBase.setReceiver(dispatcher);
 
-        dispatcher.addListener("android",receiver);
-        PdBase.subscribe("android");
+        dispatcher.addListener("d_output_0",receiver);
+        PdBase.subscribe("d_output_0");
+
+        dispatcher.addListener("d_output_1",receiver);
+        PdBase.subscribe("d_output_1");
+
+        dispatcher.addListener("neopixel",receiver);
+        PdBase.subscribe("neopixel");
+
+        dispatcher.addListener("vibrate",receiver);
+        PdBase.subscribe("vibrate");
 
     }
 
@@ -255,20 +266,24 @@ public class BluetoothControlAcitvity extends Activity {
     {
         if(received.length()>0) {
             if (received.charAt(0) == 'A') {
-                bendValue = received.substring(1);
-                sendPatchData("A0", bendValue);
+                A0Value = received.substring(1);
+                Log.i("A0",A0Value);
+                sendPatchData("a_input_0", A0Value);
             }
             else if (received.charAt(0) == 'B') {
-                thermValue = received.substring(1);
-                sendPatchData("A1", thermValue);
+                A1Value = received.substring(1);
+                Log.i("A1",A1Value);
+                sendPatchData("a_input_1", A1Value);
             }
             else if (received.charAt(0) == 'C') {
-                forceValue = received.substring(1);
-                sendPatchData("A2", forceValue);
+                A2Value = received.substring(1);
+                Log.i("A2",A2Value);
+                sendPatchData("a_input_2", A2Value);
             }
             else if (received.charAt(0) == 'D') {
-                buttonValue = received.substring(1);
-                sendPatchData("A3", buttonValue);
+                A3Value = received.substring(1);
+                Log.i("A3",A3Value);
+                sendPatchData("a_input_3", A3Value);
             }
         }
     }
@@ -356,27 +371,61 @@ public class BluetoothControlAcitvity extends Activity {
 
         @Override
         public void receiveBang(String source) {
-            pdPost("bang");
+            //pdPost("bang");
         }
 
         @Override
         public void receiveFloat(String source, float x) {
-            pdPost("float: " + x);
+            if(source.equals("d_output_0"))
+            {
+                toSend = "D0," + x + ";";
+                toSend = toSend.replace(".0","");
+                pdPost(toSend);
+
+            }
+            else if(source.equals("d_output_1"))
+            {
+                toSend = "D1," + x + ";";
+                toSend = toSend.replace(".0","");
+                pdPost(toSend);
+            }
         }
 
         @Override
         public void receiveList(String source, Object... args) {
-            pdPost("list: " + Arrays.toString(args));
+          //  pdPost("list: " + Arrays.toString(args));
+
+            if (source.equals("neopixel"))
+            {
+                    toSend = "N" + args[0].toString() + "," + args[1].toString() + "," + args[2].toString() + "," + args[3].toString() + ";";
+                    toSend = toSend.replace(".0","");
+                    pdPost(toSend); //NPixelNo,R,G,B;
+
+            }
+            else if (source.equals("vibrate"))
+            {
+                toSend = "V"+args[0]+","+args[1]+";";
+                toSend = toSend.replace(".0","");
+                pdPost(toSend); //VWaveform,Duration;
+            }
         }
 
         @Override
         public void receiveMessage(String source, String symbol, Object... args) {
-            pdPost("message: " + Arrays.toString(args));
+            if(symbol.equals("show"))
+            {
+                pdPost("N,S;");
+            }
+            else if(symbol.equals("hide"))
+            {
+                pdPost("N,H;");
+            }
+
         }
 
         @Override
         public void receiveSymbol(String source, String symbol) {
-            pdPost("symbol: " + symbol);
+            //pdPost("symbol: " + symbol);
         }
     };
 
