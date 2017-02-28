@@ -73,10 +73,10 @@ public class BluetoothControlAcitvity extends Activity {
 
         PdBase.setReceiver(dispatcher);
 
-        dispatcher.addListener("d_output_0",receiver);
+        dispatcher.addListener("d_output_2",receiver);
         PdBase.subscribe("d_output_0");
 
-        dispatcher.addListener("d_output_1",receiver);
+        dispatcher.addListener("d_output_3",receiver);
         PdBase.subscribe("d_output_1");
 
         dispatcher.addListener("neopixel",receiver);
@@ -376,16 +376,16 @@ public class BluetoothControlAcitvity extends Activity {
 
         @Override
         public void receiveFloat(String source, float x) {
-            if(source.equals("d_output_0"))
+            if(source.equals("d_output_2"))
             {
-                toSend = "D0," + x + ";";
+                toSend = "D2," + x + ";";
                 toSend = toSend.replace(".0","");
                 pdPost(toSend);
 
             }
-            else if(source.equals("d_output_1"))
+            else if(source.equals("d_output_3"))
             {
-                toSend = "D1," + x + ";";
+                toSend = "D3," + x + ";";
                 toSend = toSend.replace(".0","");
                 pdPost(toSend);
             }
