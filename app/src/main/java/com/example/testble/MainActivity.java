@@ -2,18 +2,14 @@ package com.example.testble;
 
 import java.util.ArrayList;
 
-import android.Manifest;
 import android.os.Bundle;
 import android.os.Handler;
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.v4.app.ActivityCompat;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -123,9 +119,9 @@ public class MainActivity extends ListActivity
         final BluetoothDevice device = mLeDeviceListAdapter.getDevice(position);
         if (device == null) return;
         
-        final Intent intent = new Intent(this, BluetoothControlAcitvity.class);
-        intent.putExtra(BluetoothControlAcitvity.EXTRAS_DEVICE_NAME, device.getName());
-        intent.putExtra(BluetoothControlAcitvity.EXTRAS_DEVICE_ADDRESS, device.getAddress());
+        final Intent intent = new Intent(this, BluetoothControlActivity.class);
+        intent.putExtra(BluetoothControlActivity.EXTRAS_DEVICE_NAME, device.getName());
+        intent.putExtra(BluetoothControlActivity.EXTRAS_DEVICE_ADDRESS, device.getAddress());
         if (mScanning) 
         {
             mble.stopLeScan();
