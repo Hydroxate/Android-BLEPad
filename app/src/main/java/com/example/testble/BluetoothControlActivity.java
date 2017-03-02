@@ -342,7 +342,7 @@ public class BluetoothControlActivity extends Activity {
                // public void run() {
 
                     while(!mble.sendData(msg)) {
-                        Log.e("BLEWRITE","ERROR");
+                      //  Log.e("BLEWRITE","ERROR");
                     }
 
                 }
