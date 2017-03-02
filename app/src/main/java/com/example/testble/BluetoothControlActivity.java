@@ -378,7 +378,7 @@ public class BluetoothControlActivity extends Activity {
         @Override
         public void receiveMessage(String source, String symbol, Object... args) {
             //  pdPost("list: " + Arrays.toString(args));
-            toSend  = symbol;
+            toSend  = symbol+",";
             for(int i = 0; i < args.length;i++) {
                 toSend += args[i].toString();
                 if(i != args.length - 1) {
