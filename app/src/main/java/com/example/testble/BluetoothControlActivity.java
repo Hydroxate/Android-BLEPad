@@ -65,6 +65,9 @@ public class BluetoothControlActivity extends Activity {
         dispatcher.addListener("ble",receiver);
         PdBase.subscribe("ble");
 
+        dispatcher.addListener("d_output_2",receiver);
+        PdBase.subscribe("d_output_2");
+
     }
 
 
@@ -356,6 +359,13 @@ public class BluetoothControlActivity extends Activity {
 
         @Override
         public void receiveFloat(String source, float x) {
+            if(source.equals("d_output_3"))
+            {
+                toSend = "D, 13," + x + ";";
+                toSend = toSend.replace(".0","");
+                pdPost(toSend);
+
+            }
 
         }
 
