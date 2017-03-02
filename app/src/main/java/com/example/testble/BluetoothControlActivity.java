@@ -2,11 +2,14 @@ package com.example.testble;
 
 
 import android.app.Activity;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.IBinder;
 import android.os.Message;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
@@ -19,6 +22,7 @@ import android.widget.Switch;
 
 import org.puredata.android.io.AudioParameters;
 import org.puredata.android.io.PdAudio;
+import org.puredata.android.service.PdService;
 import org.puredata.android.utils.PdUiDispatcher;
 import org.puredata.core.PdBase;
 import org.puredata.core.PdReceiver;
@@ -333,16 +337,17 @@ public class BluetoothControlActivity extends Activity {
         private void pdPost(final String msg) {
             Log.e("RECEIVED:", msg);
 
-            new Handler().post(new Runnable() {
-                @Override
-                public void run() {
+            //new Handler().post(new Runnable() {
+               // @Override
+               // public void run() {
 
-                    if (!mble.sendData(msg)) {
+                    while(!mble.sendData(msg)) {
+                        Log.e("BLEWRITE","ERROR");
                     }
 
                 }
-            });
-        }
+           // });
+
 
         @Override
         public void print(String s) {
@@ -378,6 +383,7 @@ public class BluetoothControlActivity extends Activity {
                     toSend += ";";
                 }
             }
+            toSend = toSend.replace(".0","");
             pdPost(toSend);
 
         }
@@ -387,7 +393,5 @@ public class BluetoothControlActivity extends Activity {
             //pdPost("symbol: " + symbol);
         }
     };
-
-
 
 }

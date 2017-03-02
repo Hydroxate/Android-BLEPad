@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Wed Jan 25 16:30:23 GMT 2017
+#Thu Mar 02 16:23:12 GMT 2017
 5.base=/Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/transforms/stripDebugSymbol/debug/folders/2000/1f/main
 42.base=/Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/transforms/stripDebugSymbol/debug/folders/2000/1f/main
 32.set=NATIVE_RESOURCE
@@ -15,7 +15,7 @@
 0.file=/Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/transforms/stripDebugSymbol/debug/folders/2000/1f/main/lib/armeabi/libsigmund_tilde.so
 32.base=/Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/transforms/stripDebugSymbol/debug/folders/2000/1f/main
 17.set=NATIVE_RESOURCE
-50.set=ANDROID_RESOURCE
+50.set=NATIVE_RESOURCE
 4.file=/Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/res/resources-debug.ap_/res/drawable-hdpi-v4/ic_launcher.png
 26.base=/Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/transforms/stripDebugSymbol/debug/folders/2000/1f/main
 41.file=/Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main/classes.dex
@@ -30,7 +30,7 @@
 35.set=ANDROID_RESOURCE
 21.file=/Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/transforms/stripDebugSymbol/debug/folders/2000/1f/main/lib/armeabi/liblrshift_tilde.so
 16.base=/Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/res/resources-debug.ap_
-49.file=/Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/transforms/stripDebugSymbol/debug/folders/2000/1f/main/lib/armeabi-v7a/libstdout.so
+49.file=/Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/res/resources-debug.ap_/res/raw/synth.zip
 31.file=/Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/transforms/stripDebugSymbol/debug/folders/2000/1f/main/lib/x86/libstdout.so
 24.set=NATIVE_RESOURCE
 25.file=/Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/transforms/stripDebugSymbol/debug/folders/2000/1f/main/lib/armeabi/libstdout.so
@@ -49,7 +49,7 @@
 15.file=/Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/res/resources-debug.ap_/res/drawable/icon.png
 53.base=/Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/transforms/stripDebugSymbol/debug/folders/2000/1f/main
 31.set=NATIVE_RESOURCE
-49.set=NATIVE_RESOURCE
+49.set=ANDROID_RESOURCE
 47.base=/Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/res/resources-debug.ap_
 20.set=ANDROID_RESOURCE
 38.set=NATIVE_RESOURCE
@@ -81,7 +81,7 @@ count=55
 40.base=/Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/res/resources-debug.ap_
 12.set=ANDROID_RESOURCE
 12.file=/Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/res/resources-debug.ap_/res/layout/bluetooth_control.xml
-50.base=/Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/res/resources-debug.ap_
+50.base=/Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/transforms/stripDebugSymbol/debug/folders/2000/1f/main
 7.base=/Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/transforms/stripDebugSymbol/debug/folders/2000/1f/main
 19.set=NATIVE_RESOURCE
 44.base=/Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/res/resources-debug.ap_
@@ -131,7 +131,7 @@ count=55
 18.set=NATIVE_RESOURCE
 21.base=/Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/transforms/stripDebugSymbol/debug/folders/2000/1f/main
 51.set=NATIVE_RESOURCE
-49.base=/Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/transforms/stripDebugSymbol/debug/folders/2000/1f/main
+49.base=/Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/res/resources-debug.ap_
 31.base=/Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/transforms/stripDebugSymbol/debug/folders/2000/1f/main
 2.set=NATIVE_RESOURCE
 40.set=ANDROID_RESOURCE
@@ -140,7 +140,7 @@ count=55
 40.file=/Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/res/resources-debug.ap_/res/layout/actionbar_indeterminate_progress.xml
 35.base=/Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/res/resources-debug.ap_
 9.set=ANDROID_RESOURCE
-50.file=/Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/res/resources-debug.ap_/res/raw/synth.zip
+50.file=/Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/transforms/stripDebugSymbol/debug/folders/2000/1f/main/lib/armeabi-v7a/libstdout.so
 47.set=ANDROID_RESOURCE
 19.base=/Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/transforms/stripDebugSymbol/debug/folders/2000/1f/main
 29.base=/Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/transforms/stripDebugSymbol/debug/folders/2000/1f/main
