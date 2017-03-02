@@ -93,7 +93,7 @@ category#android.intent.category.LAUNCHER
 ADDED from /Users/conorsouness/Downloads/Android-BLEPad-master/app/src/main/AndroidManifest.xml:30:17-77
 	android:name
 		ADDED from /Users/conorsouness/Downloads/Android-BLEPad-master/app/src/main/AndroidManifest.xml:30:27-74
-activity#com.example.testble.BluetoothControlAcitvity
+activity#com.example.testble.BluetoothControlActivity
 ADDED from /Users/conorsouness/Downloads/Android-BLEPad-master/app/src/main/AndroidManifest.xml:34:10-40:15
 	android:screenOrientation
 		ADDED from /Users/conorsouness/Downloads/Android-BLEPad-master/app/src/main/AndroidManifest.xml:37:13-49
