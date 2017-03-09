@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Thu Mar 02 16:23:12 GMT 2017
+#Wed Mar 08 15:53:55 GMT 2017
 5.base=/Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/transforms/stripDebugSymbol/debug/folders/2000/1f/main
 42.base=/Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/transforms/stripDebugSymbol/debug/folders/2000/1f/main
 32.set=NATIVE_RESOURCE
@@ -30,7 +30,7 @@
 35.set=ANDROID_RESOURCE
 21.file=/Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/transforms/stripDebugSymbol/debug/folders/2000/1f/main/lib/armeabi/liblrshift_tilde.so
 16.base=/Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/res/resources-debug.ap_
-49.file=/Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/res/resources-debug.ap_/res/raw/synth.zip
+49.file=/Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/res/resources-debug.ap_/res/drawable-hdpi-v4/hongjia.png
 31.file=/Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/transforms/stripDebugSymbol/debug/folders/2000/1f/main/lib/x86/libstdout.so
 24.set=NATIVE_RESOURCE
 25.file=/Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/transforms/stripDebugSymbol/debug/folders/2000/1f/main/lib/armeabi/libstdout.so
@@ -153,7 +153,7 @@ count=55
 25.set=NATIVE_RESOURCE
 20.file=/Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/res/resources-debug.ap_/AndroidManifest.xml
 15.base=/Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/res/resources-debug.ap_
-48.file=/Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/res/resources-debug.ap_/res/drawable-hdpi-v4/hongjia.png
+48.file=/Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/res/resources-debug.ap_/res/raw/synth.zip
 30.file=/Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/transforms/stripDebugSymbol/debug/folders/2000/1f/main/lib/armeabi/libpdnative.so
 14.set=NATIVE_RESOURCE
 24.file=/Users/conorsouness/Downloads/Android-BLEPad-master/app/build/intermediates/transforms/stripDebugSymbol/debug/folders/2000/1f/main/lib/x86/libfiddle_tilde.so

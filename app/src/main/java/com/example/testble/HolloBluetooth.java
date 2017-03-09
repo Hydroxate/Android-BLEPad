@@ -24,8 +24,8 @@ public class HolloBluetooth extends BluetoothLe
     public final static UUID UUID_HOLLO_DATA_RECEIVE = UUID.fromString("0000fff1-0000-1000-8000-00805f9b34fb");
     public final static UUID UUID_HOLLO_DATA_SEND = UUID.fromString("0000fff2-0000-1000-8000-00805f9b34fb");
     
-    public final static int RECV_TIME_OUT_SHORT	= 1000;
-    public final static int RECV_TIME_OUT_MIDDLE = 2000;
+    public final static int RECV_TIME_OUT_SHORT	= 2000;
+    public final static int RECV_TIME_OUT_MIDDLE = 5000;
     public final static int RECV_TIME_OUT_LONG	= 10000;
     
     public final static int BLE_SEND_DATA_LEN_MAX = 20;
@@ -129,9 +129,7 @@ public class HolloBluetooth extends BluetoothLe
 		BluetoothGattCharacteristic character;
 
 		character = mBluetoothGatt.getService(UUID_HOLLO_SERVICE).getCharacteristic(UUID_HOLLO_DATA_SEND);
-	
 
-			
 			character.setValue(data);
 			//character.setWriteType(BluetoothGattCharacteristic.WRITE_TYPE_NO_RESPONSE);
 			if(!mBluetoothGatt.writeCharacteristic(character))
@@ -335,7 +333,7 @@ public class HolloBluetooth extends BluetoothLe
 					try
 					{
 						mCount++;
-						Thread.sleep(1);
+						Thread.sleep(10);
 						
 						if(!mThreadAlive)
 						{

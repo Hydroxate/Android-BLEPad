@@ -17,6 +17,7 @@ import android.text.style.ForegroundColorSpan;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.CompoundButton;
 import android.widget.ScrollView;
 import android.widget.Switch;
 
@@ -110,6 +111,8 @@ public class BluetoothControlActivity extends Activity {
         final Intent intent = getIntent();
         mDeviceName = intent.getStringExtra(EXTRAS_DEVICE_NAME);
         mDeviceAddress = intent.getStringExtra(EXTRAS_DEVICE_ADDRESS);
+
+        Switch onOffSwitch = (Switch) findViewById(R.id.onOffSwitch);
 
         getActionBar().setTitle(mDeviceName);
         getActionBar().setDisplayHomeAsUpEnabled(true);
@@ -210,7 +213,6 @@ public class BluetoothControlActivity extends Activity {
         try {
             initPD();
             loadPDPatch("synth.pd"); // This is the name of the patch in the zip
-            sendFloatPD("onOff", 1.0f);
 
             new Handler().post(new Runnable() {
                 @Override
@@ -226,6 +228,15 @@ public class BluetoothControlActivity extends Activity {
         } catch (IOException e) {
             finish();
         }
+
+        onOffSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                float val = (isChecked) ?  1.0f : 0.0f; // value = (get value of isChecked, if true val = 1.0f, if false val = 0.0f)
+                sendFloatPD("onOff", val); //send value to patch, receiveEvent names onOff
+
+            }
+        });
 
     }
 
@@ -251,18 +262,18 @@ public class BluetoothControlActivity extends Activity {
         if(received.length()>0) {
             if (received.charAt(0) == 'A') {
                 A0Value = received.substring(1);
-                Log.i("A0",A0Value);
-                sendPatchData("a_input_0", A0Value);
+                Log.i("A2",A0Value);
+                sendPatchData("a_input_2", A0Value);
             }
             else if (received.charAt(0) == 'B') {
                 A1Value = received.substring(1);
-                Log.i("A1",A1Value);
-                sendPatchData("a_input_1", A1Value);
+                Log.i("A0",A1Value);
+                sendPatchData("a_input_0", A1Value);
             }
             else if (received.charAt(0) == 'C') {
                 A2Value = received.substring(1);
-                Log.i("A2",A2Value);
-                sendPatchData("a_input_2", A2Value);
+                Log.i("A1",A2Value);
+                sendPatchData("a_input_1", A2Value);
             }
             else if (received.charAt(0) == 'D') {
                 A3Value = received.substring(1);
@@ -337,16 +348,17 @@ public class BluetoothControlActivity extends Activity {
         private void pdPost(final String msg) {
             Log.e("RECEIVED:", msg);
 
-            //new Handler().post(new Runnable() {
-               // @Override
-               // public void run() {
 
-                    while(!mble.sendData(msg)) {
-                      //  Log.e("BLEWRITE","ERROR");
+
+                    while (!mble.sendData(msg)) {
+                        //  Log.e("BLEWRITE","ERROR");
                     }
 
+                    sendFloatPD("stop", 1.0f);
+
                 }
-           // });
+
+
 
 
         @Override
@@ -384,6 +396,7 @@ public class BluetoothControlActivity extends Activity {
                 }
             }
             toSend = toSend.replace(".0","");
+            sendFloatPD("start", 1.0f);
             pdPost(toSend);
 
         }
