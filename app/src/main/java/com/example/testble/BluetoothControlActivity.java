@@ -261,19 +261,19 @@ public class BluetoothControlActivity extends Activity {
     {
         if(received.length()>0) {
             if (received.charAt(0) == 'A') {
-                A0Value = received.substring(1);
-                Log.i("A2",A0Value);
-                sendPatchData("a_input_2", A0Value);
+                A2Value = received.substring(1);
+                Log.i("A2",A2Value);
+                sendPatchData("a_input_2", A2Value);
             }
             else if (received.charAt(0) == 'B') {
-                A1Value = received.substring(1);
-                Log.i("A0",A1Value);
-                sendPatchData("a_input_0", A1Value);
+                A0Value = received.substring(1);
+                Log.i("A0",A0Value);
+                sendPatchData("a_input_0", A0Value);
             }
             else if (received.charAt(0) == 'C') {
-                A2Value = received.substring(1);
+                A1Value = received.substring(1);
                 Log.i("A1",A2Value);
-                sendPatchData("a_input_1", A2Value);
+                sendPatchData("a_input_1", A1Value);
             }
             else if (received.charAt(0) == 'D') {
                 A3Value = received.substring(1);
