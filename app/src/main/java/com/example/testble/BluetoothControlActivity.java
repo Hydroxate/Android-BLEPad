@@ -20,6 +20,7 @@ import android.view.MenuItem;
 import android.widget.CompoundButton;
 import android.widget.ScrollView;
 import android.widget.Switch;
+import android.widget.TextView;
 
 import org.puredata.android.io.AudioParameters;
 import org.puredata.android.io.PdAudio;

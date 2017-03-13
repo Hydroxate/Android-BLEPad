@@ -17,4 +17,5 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="79dp"
         android:id="@+id/onOffSwitch" />
+
 </RelativeLayout >
