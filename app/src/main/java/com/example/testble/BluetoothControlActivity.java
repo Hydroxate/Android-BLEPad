@@ -54,6 +54,8 @@ public class BluetoothControlActivity extends Activity {
     public String A1Value;
     private static final int MSG_DATA_CHANGE = 0x11;
 
+    TextView A2Input;
+
     public String toSend;
 
     StringBuilder output = new StringBuilder();
@@ -112,6 +114,8 @@ public class BluetoothControlActivity extends Activity {
         final Intent intent = getIntent();
         mDeviceName = intent.getStringExtra(EXTRAS_DEVICE_NAME);
         mDeviceAddress = intent.getStringExtra(EXTRAS_DEVICE_ADDRESS);
+
+        A2Input = (TextView) findViewById(R.id.A2Input);
 
         Switch onOffSwitch = (Switch) findViewById(R.id.onOffSwitch);
 
@@ -264,6 +268,7 @@ public class BluetoothControlActivity extends Activity {
             if (received.charAt(0) == 'A') {
                 A2Value = received.substring(1);
                 Log.i("A2",A2Value);
+                A2Input.setText(A2Value);
                 sendPatchData("a_input_2", A2Value);
             }
             else if (received.charAt(0) == 'B') {
